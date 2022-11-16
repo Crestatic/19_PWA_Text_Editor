@@ -28,6 +28,7 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
 
 // Set up asset cache
 registerRoute(
+  // Define callback function that will filter the requets we wanna cache
   ({ request }) => ['style', 'script', 'worker'].includes(request.destination),
   new StaleWhileRevalidate({
     // Name of the cache storage.
